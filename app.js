@@ -31,7 +31,7 @@ function calculate3({ discount, products }) {
 }
 
 const discountedPrice = calculate3({
-  discount: 0.1,
+  discount: 0.9,
   products: [
     {
       name: "Product 1",
