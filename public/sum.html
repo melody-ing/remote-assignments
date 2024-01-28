@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        text-align: center;
+      }
+      html {
+        background-color: #a8b4ad;
+      }
+      body {
+        font-family: "AR One Sans", sans-serif;
+        margin: 0;
+        color: #16222a;
+      }
+      h1 {
+        font-size: 60px;
+        margin-top: 100px;
+      }
+      input {
+        height: 50px;
+        width: 300px;
+        border: 0;
+        box-shadow: 0px 2px 10px 1px rgba(65, 65, 65, 0.2);
+        border-radius: 8px;
+        outline: none;
+        font-size: 18px;
+      }
+      button {
+        margin-top: 20px;
+        border: 0;
+        border-radius: 8px;
+        height: 50px;
+        width: 160px;
+        font-size: 24px;
+        background-color: #2a4255;
+        color: #e0e0e0;
+      }
+      h3 {
+        margin-top: 30px;
+        font-size: 20px;
+      }
+      h4 {
+        margin-top: 20px;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>sum</h1>
+    <input type="text" id="userInput" placeholder="Please Enter a number" />
+    <div></div>
+    <button id="btn">GO!</button>
+    <h3 id="h3"></h3>
+
+    <h4 id="result"></h4>
+
+    <script>
+      const input = document.querySelector("#userInput");
+      const btn = document.querySelector("#btn");
+      const result = document.querySelector("#result");
+      const h3 = document.querySelector("#h3");
+
+      btn.addEventListener("click", (e) => {
+        const inputValue = input.value;
+        fetch(`http://localhost:3000/getData?number=${inputValue}`)
+          .then((response) => response.text())
+          .then((data) => (result.innerHTML = data))
+          .catch((err) => console.log(err));
+
+        if (inputValue % 1 === 0 && inputValue > 0) {
+          h3.innerHTML = `The total of 1+2+...+${inputValue} is:`;
+        } else {
+          h3.innerHTML = ``;
+        }
+      });
+    </script>
+  </body>
+</html>
