@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: SF Pro TC, SF Pro Display, SF Pro Icons, AOS Icons, PingFang TC,
+    Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+#products {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  gap: 24px;
+}
+
+.product {
+  border-radius: 12px;
+  box-shadow: 0 0 6px 4px rgb(236, 236, 236);
+  padding: 24px;
+}
+
+.product:hover {
+  transform: scale(1.04);
+  transition: all 0.5s ease 0s;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
+h1 {
+}
+
+.price {
+  font-size: 14px;
+}
+
+.des {
+  font-size: 14px;
+}
