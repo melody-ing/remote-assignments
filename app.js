@@ -14,11 +14,11 @@ app.get("/getData", (req, res) => {
   const number = req.query.number;
   if (!number) {
     return res.send(`Lack of Parameter`);
-  } else if (!(number % 1 === 0 && number > 0)) {
-    return res.send(`Wrong Parameter`);
-  } else {
-    return res.send(`${result(Number(number))}`);
   }
+  if (!(number % 1 === 0 && number > 0)) {
+    return res.send(`Wrong Parameter`);
+  }
+  return res.send(`${result(Number(number))}`);
 });
 
 function result(num) {
